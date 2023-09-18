@@ -28,7 +28,7 @@ class HomeDataRandomGeneratorService implements HomeDataRepository {
     if (simulateAsync) await Future.delayed(const Duration(milliseconds: 500));
     int octaves = rand.nextInt(6) + 2;
 
-    final a = List.generate(
+    return List.generate(
       size,
       (index) {
         // Generate 1D terrain.
@@ -46,8 +46,6 @@ class HomeDataRandomGeneratorService implements HomeDataRepository {
         );
       },
     );
-
-    return a;
   }
 
   double _clamp(double d, double min, double max) {

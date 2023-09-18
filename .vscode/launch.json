@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "app_flutter",
+            "name": "app_flutter (dev mode)",
             "cwd": "app_flutter",
             "request": "launch",
             "type": "dart"
@@ -18,11 +18,10 @@
             "flutterMode": "profile"
         },
         {
-            "name": "app_flutter (release mode)",
-            "cwd": "app_flutter",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        }
+            "name": "app_react",
+            "cwd": "app_react",
+            "request": "attach",
+            "type": "reactnativedirect"
+        },
     ]
 }
