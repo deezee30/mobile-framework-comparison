@@ -59,8 +59,8 @@ export class HomeDataRandomGeneratorService implements HomeDataRepository {
                 this.minX + (index / this.size) * (this.maxX - this.minX);
             const y: number = this.minY + perlinNoise * (this.maxY - this.minY);
             return [
-                clamp(x, this.minX, this.minY),
-                clamp(y, this.minX, this.minY),
+                clamp(x, this.minX, this.maxX),
+                clamp(y, this.minY, this.maxY),
             ];
         });
     };

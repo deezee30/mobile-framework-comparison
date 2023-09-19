@@ -45,6 +45,7 @@ const HomeTabViewContainer = ({
                     }}
                 />}
             </View>
+            {!state.loading && builder?.(state.value!)}
             {children}
         </View>
     );

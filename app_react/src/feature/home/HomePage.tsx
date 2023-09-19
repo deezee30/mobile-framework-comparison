@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
+import { Dimensions } from 'react-native';
 import { Appbar, DefaultTheme, Switch, Text } from 'react-native-paper';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { HomeDataRepository, HomeDataRandomGeneratorService } from './HomeData';
 import HomeTabViewContainer from './HomeTabViewContainer';
-import { Dimensions } from 'react-native';
 
 const CHART_MIN_X: number = 0;
 const CHART_MAX_X: number = 100;
@@ -16,7 +16,7 @@ const HomePage = () => {
     const [simulateAsync, setSimulateAsync] = useState(false);
 
     const generator: HomeDataRepository = new HomeDataRandomGeneratorService({
-        size: 500,
+        size: 50,
         minX: CHART_MIN_X,
         maxX: CHART_MAX_X,
         minY: CHART_MIN_Y,
@@ -42,17 +42,17 @@ const HomePage = () => {
                 tabBarIndicatorStyle: {
                     backgroundColor: DefaultTheme.colors.primary,
                 },
-              }}
+            }}
         >
             <Tab.Screen
                 name="Tab 1"
-                component={TabView1}
-                initialParams={{ repository: generator }}
+                component={TabView(generator)}
+                initialParams={{ title: 'Tab View 1' }}
             />
             <Tab.Screen
                 name="Tab 2"
-                component={TabView2}
-                initialParams={{ repository: generator }}
+                component={TabView(generator)}
+                initialParams={{ title: 'Tab View 2' }}
             />
         </Tab.Navigator>
     </>);
@@ -60,20 +60,20 @@ const HomePage = () => {
 
 export default HomePage;
 
-const TabView1 = (props: any) => (
-    <HomeTabViewContainer
-        title='Tab View 1'
-        repository={props.route.params.repository}
-    >
-        <Text>TODO: Graph 1</Text>
-    </HomeTabViewContainer>
-);
+const TabView = (repo: HomeDataRepository) => (props: any) => {
+    const title: string = props.route.params.title;
 
-const TabView2 = (props: any) => (
-    <HomeTabViewContainer
-        title='Tab View 2'
-        repository={props.route.params.repository}
-    >
-        <Text>TODO: Graph 2</Text>
-    </HomeTabViewContainer>
-);
+    const ChartView = (data: [number, number][]): ReactNode => {
+        return (<>
+            // TODO: Chart
+        </>);
+    };
+
+    return (
+        <HomeTabViewContainer
+            title={title}
+            repository={repo}
+            builder={ChartView}
+        />
+    );
+};
