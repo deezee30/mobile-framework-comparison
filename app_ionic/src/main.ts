@@ -1,5 +1,8 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue";
+import vuetify from "./plugins/vuetify";
+import VueApexCharts from "vue3-apexcharts";
 
-createApp(App).mount('#app')
+import "./style/style.css";
+import App from "./AppLauncher.vue";
+
+createApp(App).use(vuetify).use(VueApexCharts).mount("#app");
