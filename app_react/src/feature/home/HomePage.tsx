@@ -16,7 +16,7 @@ const HomePage = () => {
     const [simulateAsync, setSimulateAsync] = useState(false);
 
     const generator: HomeDataRepository = new HomeDataRandomGeneratorService({
-        size: 50,
+        size: 500,
         minX: CHART_MIN_X,
         maxX: CHART_MAX_X,
         minY: CHART_MIN_Y,

@@ -1,7 +1,7 @@
 import 'package:app_flutter/style/style.dart';
 import 'package:flutter/material.dart';
 
-import 'feature/home.dart';
+import 'features/home.dart';
 
 class AppLauncher extends StatelessWidget {
   const AppLauncher({super.key});
